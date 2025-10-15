@@ -3,9 +3,14 @@ package com.secogroupe.manager.models;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -26,7 +31,8 @@ public class Employee {
 
     private LocalDate dateNaissance;
 
-    private String sexe;
+    @Enumerated(EnumType.STRING)
+    private Sexe sexe;
 
     private String nif;
 
@@ -34,21 +40,32 @@ public class Employee {
 
     private String telephone;
 
-    private String etatCivil;
+    @ManyToOne
+    @JoinColumn(name = "etat_civil_id")
+    private EtatCivil etatCivil;
 
     private int nombreEnfant;
 
-    private String position;
+    @ManyToOne
+    @JoinColumn(name = "position_id")
+    private Position position;
 
-    private String departement;
+    @ManyToOne
+    @JoinColumn(name = "departement_id")
+    private Departement departement;
 
     private LocalDate dateEmbauche;
 
     private double salaire;
 
-    private String nomCompteBancaire;
+    @ManyToOne
+    @JoinColumn(name = "banque_id")
+    private Banque banque;
 
     private String numCompteBancaire;
 
-    private String typeConge;
+    @ManyToOne
+    @JoinColumn(name = "type_conge_id")
+    private TypeConge typeConge;
+
 }
