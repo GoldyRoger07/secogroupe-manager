@@ -11,7 +11,8 @@ import com.secogroupe.manager.models.Banque;
 import com.secogroupe.manager.services.BanqueService;
 
 @RestController
-@RequestMapping("/api/banques")
+@RequestMapping("/secogroupe-manager/api/banques")
+@CrossOrigin("*")
 public class BanqueController {
 
     private final BanqueService banqueService;

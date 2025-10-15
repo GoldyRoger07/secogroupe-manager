@@ -11,7 +11,8 @@ import com.secogroupe.manager.models.Departement;
 import com.secogroupe.manager.services.DepartementService;
 
 @RestController
-@RequestMapping("/api/departements")
+@RequestMapping("/secogroupe-manager/api/departements")
+@CrossOrigin("*")
 public class DepartementController {
 
     private final DepartementService departementService;
@@ -21,7 +22,7 @@ public class DepartementController {
         this.departementService = departementService;
     }
 
-    @GetMapping
+    @GetMapping("")
     public List<Departement> getAllDepartements() {
         return departementService.getAllDepartements();
     }
@@ -31,7 +32,7 @@ public class DepartementController {
         return ResponseEntity.ok(departementService.getDepartementById(id));
     }
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<Departement> createDepartement(@RequestBody Departement departement) {
         Departement created = departementService.createDepartement(departement);
         return new ResponseEntity<>(created, HttpStatus.CREATED);

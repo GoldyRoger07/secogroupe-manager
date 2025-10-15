@@ -11,7 +11,8 @@ import com.secogroupe.manager.models.TypeConge;
 import com.secogroupe.manager.services.TypeCongeService;
 
 @RestController
-@RequestMapping("/api/typeconges")
+@RequestMapping("/secogroupe-manager/api/typeconges")
+@CrossOrigin("*")
 public class TypeCongeController {
 
     private final TypeCongeService typeCongeService;

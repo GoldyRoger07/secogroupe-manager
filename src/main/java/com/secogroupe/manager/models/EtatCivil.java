@@ -1,12 +1,10 @@
 package com.secogroupe.manager.models;
 
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -20,7 +18,5 @@ public class EtatCivil {
 
     private String name;
 
-    @OneToMany(mappedBy = "etatCivil")
-    private List<Employee> employees;
-
+   
 }
